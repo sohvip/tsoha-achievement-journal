@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Achievement Journal - {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        {% if session.username %}
+        <p>Signed in as {{ session.username }}</p>
+        <button><a href="/signout">Sign out</a></button>
+        {% else %}
+        <button><a href="/signin">Sign in</a></button>
+        <button><a href="/signup">Sign up</a></button>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

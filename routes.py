@@ -13,17 +13,21 @@ def signup():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        new_user(username, password, 0)
+        role = int(request.form['role'])
+        new_user(username, password, role)
         return redirect('/')
 
-@app.route('/signin', methods=['post'])
+@app.route('/signin', methods=['get','post'])
 def signin():
-    username = request.form['username']
-    password = request.form['password']
-    if not find_user(username, password):
-        return render_template('error.html', message='Invalid username or password.')
-    session['username'] = username
-    return redirect('/')
+    if request.method == 'GET':
+        return render_template('signin.html')
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        if not find_user(username, password):
+            return render_template('error.html', message='Invalid username or password.')
+        session['username'] = username
+        return redirect('/')
 
 @app.route('/signout')
 def signout():
