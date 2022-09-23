@@ -2,7 +2,13 @@
 
 Sovelluksessa jaetaan omia tavoitteita ja saavutuksia. Postaukset on jaettu kategorioittain. Muut käyttäjät voivat tykätä ja kommentoida postauksia. Käyttäjä on joko peruskäyttäjä tai ylläpitäjä.
 
-Sovelluksen ominaisuuksia:
+Testaa sovellusta [Herokussa](https://tsoha-achievement-journal.herokuapp.com/).
+
+## Sovelluksen nykyinen tila
+
+- Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen. Tunnukset on tallennettu tietokantaan.
+
+## Sovelluksen ominaisuuksia
 
 - Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen.
 - Käyttäjä näkee sovelluksen etusivulla listan kategorioista sekä jokaisen kategorian postausten määrän ja viimeksi julkaistun postauksen ajankohdan.
