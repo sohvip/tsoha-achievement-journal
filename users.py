@@ -8,7 +8,7 @@ def new_user(username, password, type): # type 0 = normal, 1 = admin
     db.session.commit()
 
 def find_user(username, password):
-    sql = 'select id, password from users where username=:username'
+    sql = 'select id, username, password from users where username=:username'
     result = db.session.execute(sql, {'username':username})
     user = result.fetchone()
     if not user:
