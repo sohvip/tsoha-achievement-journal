@@ -1,6 +1,19 @@
 {% extends 'layout.html' %}
-{% block title %}Sign In{% endblock %}
+{% block title %}Categories{% endblock %}
 {% block content %}
-<h1>Menu</h1>
-<p>In the development...</p>
+<h1>Categories</h1>
+<ul>
+    {% for category in categories %}
+    <li>
+        <button>{{ category['category'] }}</button>
+    </li>
+    {% endfor %}
+</ul>
+{% if session.username %}
+<h5>Create a new category</h5>
+<form action="/" method="post">
+    <p>Name:<input type="text" name="category"></p>
+    <input type="submit" value="Create">
+</form>
+{% endif %}
 {% endblock %}
