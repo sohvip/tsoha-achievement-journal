@@ -7,7 +7,7 @@ Testaa sovellusta [Herokussa](https://tsoha-achievement-journal.herokuapp.com/).
 ## Sovelluksen nykyinen tila
 
 - Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen.
-- Sisäänkirjautunut käyttäjä pystyy luomaan uuden kategorian sovellukseen.
+- Ylläpitäjä pystyy luomaan uuden kategorian sovellukseen.
 
 ## Sovelluksen ominaisuuksia
 
