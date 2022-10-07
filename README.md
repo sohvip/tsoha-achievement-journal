@@ -18,4 +18,3 @@ Testaa sovellusta [Herokussa](https://tsoha-achievement-journal.herokuapp.com/).
 - Käyttäjä voi muokata julkaisemansa postauksen otsikkoa ja sisältöä. Käyttäjä voi myös poistaa postauksen.
 - Käyttäjä voi etsiä kaikki postaukset, joiden osana on annettu sana.
 - Ylläpitäjä voi lisätä ja poistaa kategorioita sekä postauksia.
-- Ylläpitäjä voi luoda salaisen alueen ja määrittää, keillä käyttäjillä on pääsy alueelle.
