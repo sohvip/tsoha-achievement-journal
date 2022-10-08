@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block title %}All comments{% endblock %}
+{% block content %}
+<h1>All comments</h1>
+{% if comments == 0 %}
+<p>no comments</p>
+{% else %}
+{% for comment in comments %}
+<b>{{ comment[4] }}</b>
+<p>{{ comment[1] }}</p>
+<i>{{ comment[3].strftime('%d.%m.%Y %H:%M:%S') }}</i>
+<br>
+{% endfor %}
+{% endif %}
+<button><a href="/category/{{ id }}/{{ post_id }}">Back</a></button>
+{% endblock %}

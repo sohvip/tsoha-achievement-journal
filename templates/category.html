@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block title %}{{ category }}{% endblock %}
+{% block content %}
+<h1>{{ category }}</h1>
+<p>{{ count }} posts</p>
+{% if session.username %}
+<button><a href="/category/{{ id }}/newpost">Create a post</a></button>
+{% endif %}
+{% for post in posts %}
+<h2>{{ post[1] }}</h2>
+<p>{{ post[5] }} {{ post[3].strftime('%d.%m.%Y %H:%M:%S') }}</p>
+<button><a href="/category/{{ id }}/{{ post[0] }}">See full post</a></button>
+<br>
+{% if user_id == post[4] %}
+<button><a href="/category/{{ id }}/{{ post[0] }}/editpost">Edit</a></button>
+<button><a href="/category/{{ id }}/{{ post[0] }}/deletepost">Delete</a></button>
+{% elif session.role == 1 %}
+<button><a href="/category/{{ id }}/{{ post[0] }}/deletepost">Delete</a></button>
+{% endif %}
+{% endfor %}
+<br>
+<button><a href="/">Back</a></button>
+{% endblock %}

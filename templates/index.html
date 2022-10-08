@@ -5,11 +5,14 @@
 <ul>
     {% for category in categories %}
     <li>
-        <button>{{ category['category'] }}</button>
+        <button><a href="/category/{{ category['id'] }}">{{ category['category'] }}</a></button>
+        {% if session.role == 1 %}
+        <button><a href="/category/{{ category['id'] }}/delete">Delete</a></button>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>
-{% if session.username %}
+{% if session.role == 1 %}
 <h5>Create a new category</h5>
 <form action="/" method="post">
     <p>Name:<input type="text" name="category"></p>

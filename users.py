@@ -1,4 +1,5 @@
 from db import db
+from flask import session
 from werkzeug.security import check_password_hash, generate_password_hash
 
 def new_user(username, password, type): # type 0 = user, 1 = admin
@@ -15,7 +16,7 @@ def new_user(username, password, type): # type 0 = user, 1 = admin
         return True
 
 def find_user(username, password):
-    sql = 'select id, username, password from users where username=:username'
+    sql = 'select id, username, password, type from users where username=:username'
     result = db.session.execute(sql, {'username':username})
     user = result.fetchone()
     if not user:
@@ -23,5 +24,16 @@ def find_user(username, password):
     else:
         hash_value = user['password']
         if check_password_hash(hash_value, password):
+            session['id'] = user.id
+            session['username'] = user.username
+            session['role'] = user.type
             return True
         return False
+
+def get_user_id():
+    return session.get('id', 0)
+
+def delete_session():
+    del session['id']
+    del session['username']
+    del session['role']

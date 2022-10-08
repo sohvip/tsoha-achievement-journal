@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block title %}Create a post{% endblock %}
+{% block content %}
+<h1>Create a post</h1>
+<form action="/category/{{ id }}/newpost" method="POST">
+    <p>Title:</p><input type="text" name="title">
+    <p>Content:</p><input type="text" name="content">
+    <input type="submit" value="Post">
+</form>
+<button><a href="/category/{{ id }}">Back</a></button>
+{% endblock %}

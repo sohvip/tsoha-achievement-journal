@@ -15,6 +15,21 @@ create table if not exists posts (
     title text,
     content text,
     user_id integer references users,
-    category_id integer references categories,
+    category_id integer references categories on delete cascade,
     sent_at timestamp
+);
+
+create table if not exists comments (
+    id serial primary key,
+    comment text,
+    user_id integer references users,
+    post_id integer references posts on delete cascade,
+    sent_at timestamp
+);
+
+create table if not exists likes (
+    id serial primary key,
+    liked integer,
+    user_id integer references users,
+    post_id integer references posts on delete cascade
 );

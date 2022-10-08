@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block title %}{{ category }}{% endblock %}
+{% block content %}
+<h1>{{ category }}</h1>
+<p>{{ post[5] }} {{ post[3].strftime('%d.%m.%Y %H:%M:%S') }}</p>
+<h2>{{ post[1] }}</h2>
+<p>{{ post[2] }}</p>
+<p>{{ likes }} likes</p>
+<button><a href="/category/{{ id }}/{{ post[0] }}/like">Like</a></button>
+<button><a href="/category/{{ id }}/{{ post[0] }}/comment">Comment</a></button>
+<br>
+{% if user_id == post[4] %}
+<button><a href="/category/{{ id }}/{{ post[0] }}/editpost">Edit</a></button>
+<button><a href="/category/{{ id }}/{{ post[0] }}/deletepost">Delete</a></button>
+{% elif session.role == 1 %}
+<button><a href="/category/{{ id }}/{{ post[0] }}/deletepost">Delete</a></button>
+{% endif %}
+<br>
+{% if comment == None %}
+<p>no comments</p>
+{% else %}
+<b>{{ comment[4] }}</b>
+<p>{{ comment[1] }}</p>
+<i>{{ comment[3].strftime('%d.%m.%Y %H:%M:%S') }}</i>
+<button><a href="/category/{{ id }}/{{ post[0] }}/all_comments">See all comments</a></button>
+{% endif %}
+<br>
+<button><a href="/category/{{ id }}">Back</a></button>
+{% endblock %}
