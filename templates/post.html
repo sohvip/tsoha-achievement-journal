@@ -6,8 +6,10 @@
 <h2>{{ post[1] }}</h2>
 <p>{{ post[2] }}</p>
 <p>{{ likes }} likes</p>
+{% if session.username %}
 <button><a href="/category/{{ id }}/{{ post[0] }}/like">Like</a></button>
 <button><a href="/category/{{ id }}/{{ post[0] }}/comment">Comment</a></button>
+{% endif %}
 <br>
 {% if user_id == post[4] %}
 <button><a href="/category/{{ id }}/{{ post[0] }}/editpost">Edit</a></button>
