@@ -6,15 +6,15 @@ Testaa sovellusta [Herokussa](https://tsoha-achievement-journal.herokuapp.com/).
 
 ## Sovelluksen nykyinen tila
 
-- Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen.
-- Ylläpitäjä pystyy luomaan uuden kategorian sovellukseen.
+Kaikki alla luetellut sovelluksen ominaisuudet toimivat lukuunottamatta postauksien etsimistä avainsanalla.  
+Sovelluksen käyttöliittymä on vielä lähtöruudussa...
 
 ## Sovelluksen ominaisuuksia
 
 - Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen.
-- Käyttäjä näkee sovelluksen etusivulla listan kategorioista sekä jokaisen kategorian postausten määrän ja viimeksi julkaistun postauksen ajankohdan.
+- Käyttäjä näkee sovelluksen etusivulla listan kategorioista.
 - Käyttäjä voi julkaista uuden postauksen antamalla sille otsikon ja tekstisisällön.
 - Käyttäjä voi tykätä ja kommentoida omia ja muiden postauksia.
-- Käyttäjä voi muokata julkaisemansa postauksen otsikkoa ja sisältöä. Käyttäjä voi myös poistaa postauksen.
+- Käyttäjä voi muokata julkaisemansa postauksen sisältöä. Käyttäjä voi myös poistaa oman postauksen.
 - Käyttäjä voi etsiä kaikki postaukset, joiden osana on annettu sana.
 - Ylläpitäjä voi lisätä ja poistaa kategorioita sekä postauksia.
