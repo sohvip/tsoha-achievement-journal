@@ -32,3 +32,7 @@ def get_post(post_id):
 def count_posts(id):
     sql = 'select count(title) from posts where category_id=:id'
     return db.session.execute(sql, {'id':id}).fetchone()[0]
+
+def search_posts(search):
+    sql = 'select p.id, p.title, p.content, p.sent_at, p.category_id, u.username from posts p, users u where p.user_id=u.id and (p.title like :search or p.content like :search)'
+    return db.session.execute(sql, {'search':'%'+search+'%'}).fetchall()

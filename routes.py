@@ -1,10 +1,10 @@
 from app import app
 from categories import new_category, show_categories, get_name, delete_category
 from users import new_user, find_user, delete_session, get_user_id
-from posts import new_post, edit_post, show_posts, show_post, get_post, delete_post, count_posts
+from posts import new_post, edit_post, show_posts, show_post, get_post, delete_post, count_posts, search_posts
 from comment import new_comment, show_comments, show_comment
 from likes import liked, get_likes
-from flask import redirect, render_template, request
+from flask import redirect, render_template, request, session, abort
 
 @app.route('/', methods=['get','post'])
 def index():
@@ -13,8 +13,20 @@ def index():
         return render_template('index.html', categories=categories)
     if request.method == 'POST':
         category = request.form['category']
+        token = request.form['csrf_token']
+        if session["csrf_token"] != token:
+            abort(403)
         new_category(category)
         return redirect('/')
+
+@app.route('/search', methods=['get', 'post'])
+def search():
+    if request.method == 'GET':
+        pass
+    if request.method == 'POST':
+        search = request.form['search']
+        posts = search_posts(search)
+        return render_template('search.html', posts=posts)
 
 @app.route('/category/<int:id>', methods=['get'])
 def category(id):
@@ -48,8 +60,13 @@ def newpost(id):
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
+        token = request.form['csrf_token']
+        if session["csrf_token"] != token:
+            abort(403)
         if len(title) < 3 or len(content) < 3:
             return render_template('newpost_error.html', id=id, message='Title and content must be atleast 3 characters long.')
+        if len(title) > 100 or len(content) > 5000:
+            return render_template('newpost_error.html', id=id, message='Title or content is too long.')
         if len(set(title)) <= 1 and title[0] == ' ':
             return render_template('newpost_error.html', id=id, message='Title cannot contain only spaces.')
         if len(set(content)) <= 1 and content[0] == ' ':
@@ -64,6 +81,9 @@ def editpost(id, post_id):
         return render_template('editpost.html', id=id, post_id=post_id, title=post[0], content=post[1])
     if request.method == 'POST':
         content = request.form['content']
+        token = request.form['csrf_token']
+        if session["csrf_token"] != token:
+            abort(403)
         if len(content) < 3:
             return render_template('editpost_error.html', id=id, post_id=post_id, message='Content must be atleast 3 characters long.')
         if len(set(content)) <= 1 and content[0] == ' ':

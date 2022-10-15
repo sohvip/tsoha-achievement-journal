@@ -6,6 +6,7 @@
     <p>Title: {{ title }}</p>
     <p>Content:</p><input type="text" name="content" value="{{ content }}">
     <input type="submit" value="Post">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 <button><a href="/category/{{ id }}">Back</a></button>
 {% endblock %}

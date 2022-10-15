@@ -1,5 +1,6 @@
 from db import db
 from flask import session
+import secrets
 from werkzeug.security import check_password_hash, generate_password_hash
 
 def new_user(username, password, type): # type 0 = user, 1 = admin
@@ -27,6 +28,7 @@ def find_user(username, password):
             session['id'] = user.id
             session['username'] = user.username
             session['role'] = user.type
+            session['csrf_token'] = secrets.token_hex(16)
             return True
         return False
 
@@ -37,3 +39,4 @@ def delete_session():
     del session['id']
     del session['username']
     del session['role']
+    del session['csrf_token']
