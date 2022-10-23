@@ -4,11 +4,6 @@ Sovelluksessa jaetaan omia tavoitteita ja saavutuksia. Postaukset on jaettu kate
 
 Testaa sovellusta [Herokussa](https://tsoha-achievement-journal.herokuapp.com/).
 
-## Sovelluksen nykyinen tila
-
-Kaikki alla luetellut sovelluksen ominaisuudet toimivat lukuunottamatta postauksien etsimistä avainsanalla.  
-Sovelluksen käyttöliittymä on vielä lähtöruudussa...
-
 ## Sovelluksen ominaisuuksia
 
 - Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen.
