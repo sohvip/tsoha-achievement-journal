@@ -4,7 +4,8 @@
 <h1>Create a post</h1>
 <form action="/category/{{ id }}/newpost" method="POST">
     <p>Title:</p><input type="text" name="title">
-    <p>Content:</p><input type="text" name="content">
+    <p>Content:</p><textarea name="content" rows="5" cols="40"></textarea>
+    <br>
     <input type="submit" value="Post">
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>

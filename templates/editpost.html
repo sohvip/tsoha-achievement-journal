@@ -4,7 +4,7 @@
 <h1>Edit post</h1>
 <form action="/category/{{ id }}/{{ post_id }}/editpost" method="POST">
     <p>Title: {{ title }}</p>
-    <p>Content:</p><input type="text" name="content" value="{{ content }}">
+    <p>Content:<textarea name="content" rows="5" cols="40">{{ content }}</textarea></p>
     <input type="submit" value="Post">
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>

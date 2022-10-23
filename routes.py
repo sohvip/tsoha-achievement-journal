@@ -16,6 +16,12 @@ def index():
         token = request.form['csrf_token']
         if session["csrf_token"] != token:
             abort(403)
+        if len(category) < 3:
+            return render_template('category_error.html', message='Name must be atleast 3 characters long.')
+        if len(category) > 100:
+            return render_template('category_error.html', message='Name is too long.')
+        if len(set(category)) <= 1 and category[0] == ' ':
+            return render_template('category_error.html', message='Name cannot contain only spaces.')
         new_category(category)
         return redirect('/')
 

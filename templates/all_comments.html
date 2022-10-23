@@ -6,9 +6,11 @@
 <p>no comments</p>
 {% else %}
 {% for comment in comments %}
-<b>{{ comment[4] }}</b>
-<p>{{ comment[1] }}</p>
-<i>{{ comment[3].strftime('%d.%m.%Y %H:%M:%S') }}</i>
+<div class="border">
+    <p><b>{{ comment[4] }}</b></p>
+    <p>{{ comment[1] }}</p>
+    <p><i>{{ comment[3].strftime('%d.%m.%Y %H:%M:%S') }}</i></p>
+</div>
 <br>
 {% endfor %}
 {% endif %}
