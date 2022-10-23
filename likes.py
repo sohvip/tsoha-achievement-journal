@@ -5,7 +5,7 @@ def liked(post_id):
     user_id = get_user_id()
     sql1 = 'select liked from likes where user_id=:user_id and post_id=:post_id'
     result = db.session.execute(sql1, {'user_id':user_id, 'post_id':post_id}).fetchone()
-    if result != None:
+    if result is not None:
         result = result[0]
     if result == 0:
         sql2 = 'update likes set liked=1 where user_id=:user_id and post_id=:post_id'
